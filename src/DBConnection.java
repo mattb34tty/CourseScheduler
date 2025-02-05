@@ -22,6 +22,12 @@ public class DBConnection {
     {
         if (connection == null)
         {
+            try{
+                Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+            } catch (ClassNotFoundException e){
+                e.printStackTrace();
+            }
+            
             try
             {
                 connection = DriverManager.getConnection(database, user, password);
